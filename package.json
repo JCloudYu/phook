@@ -1,0 +1,23 @@
+{
+	"name": "phook",
+	"version": "1.1.0",
+	"description": "A tiny library that helps developer to control over the process states",
+	"main": "phook.js",
+	"scripts": {},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/JCloudYu/phook.git"
+	},
+	"keywords": [
+		"Process",
+		"ProcessControl",
+		"StateControl",
+		"Hook"
+	],
+	"author": "JCloudYu",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/JCloudYu/phook/issues"
+	},
+	"homepage": "https://github.com/JCloudYu/phook#readme"
+}
