@@ -104,7 +104,7 @@
 	Object.defineProperties(module.exports, {
 		configure: {
 			configurable:false, enumerable:true, writable:false,
-			value:function(options={verbose:false, durations:{SIGNAL:0, SIGINT:0, SIGTERM:0, SIGQUIT:0, UNHANDLED_ERROR:-1}}) {
+			value:function(options={silent:false, durations:{SIGNAL:0, SIGINT:0, SIGTERM:0, SIGQUIT:0, UNHANDLED_ERROR:-1}}) {
 				if ( Object(options) !== options ) {
 					throw new TypeError("Configuration options must be an object!");
 				}
@@ -134,7 +134,7 @@
 				
 				
 				
-				STATE.VERBOSE = !!options.verbose;
+				STATE.VERBOSE = !options.silent;
 				
 				if ( Object(options.durations) === options.durations ) {
 					const {durations} = options;
