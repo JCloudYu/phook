@@ -9,7 +9,7 @@
 		SIGTERM: 15
 	}
 	const STATE = {
-		VERBOSE: false,
+		VERBOSE: true,
 		UNHANDLED_ERROR: -1,
 		SIGINT:  100,
 		SIGTERM: 100,
@@ -70,15 +70,19 @@
 	.on('SIGHUP', ()=>{}).on('SIGUSR1', ()=>{}).on('SIGUSR2', ()=>{})
 	.on('uncaughtException', (e)=>{
 		if ( STATE.UNHANDLED_ERROR < 0 ) return;
-		console.error("Receiving uncaught exception! Exiting...");
-		console.error(e);
+		if ( STATE.VERBOSE ) {
+			console.error("Receiving uncaught exception! Exiting...");
+			console.error(e);
+		}
 
 		setTimeout(()=>PROCESS_EXIT(1), STATE.UNHANDLED_ERROR);
 	})
 	.on('unhandledRejection', (e)=>{
 		if ( STATE.UNHANDLED_ERROR < 0 ) return;
-		console.error("Receiving unhandled rejection! Exiting...");
-		console.error(e);
+		if ( STATE.VERBOSE ) {
+			console.error("Receiving unhandled rejection! Exiting...");
+			console.error(e);
+		}
 
 		setTimeout(()=>PROCESS_EXIT(1), STATE.UNHANDLED_ERROR);
 	})
