@@ -69,21 +69,21 @@
 	process
 	.on('SIGHUP', ()=>{}).on('SIGUSR1', ()=>{}).on('SIGUSR2', ()=>{})
 	.on('uncaughtException', (e)=>{
-		if ( STATE.UNHANDLED_ERROR < 0 ) return;
 		if ( STATE.VERBOSE ) {
-			console.error("Receiving uncaught exception! Exiting...");
+			console.error("Received uncaught exception!");
 			console.error(e);
 		}
-
+	
+		if ( STATE.UNHANDLED_ERROR < 0 ) return;
 		setTimeout(()=>PROCESS_EXIT(1), STATE.UNHANDLED_ERROR);
 	})
 	.on('unhandledRejection', (e)=>{
-		if ( STATE.UNHANDLED_ERROR < 0 ) return;
 		if ( STATE.VERBOSE ) {
-			console.error("Receiving unhandled rejection! Exiting...");
+			console.error("Received unhandled rejection!");
 			console.error(e);
 		}
-
+		
+		if ( STATE.UNHANDLED_ERROR < 0 ) return;
 		setTimeout(()=>PROCESS_EXIT(1), STATE.UNHANDLED_ERROR);
 	})
 	.on('SIGINT', ()=>{
