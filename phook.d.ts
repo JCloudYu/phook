@@ -29,13 +29,15 @@ declare class phook {
 	static configure(config?:PHookConfig):phook;
 }
 
-declare namespace NodeJS {
-	interface Process {
-		/** An alias to Process.on call which also accepts and resolve Promises **/
-		hook(event:string, callback:Function):Process;
-
-		/** An alias to Process.off call which also accepts and resolve Promises **/
-		unhook(event:string, callback:Function):Process;
+declare global {
+	namespace NodeJS {
+		interface Process {
+			/** An alias to Process.on call which also accepts and resolve Promises **/
+			hook(event:string, callback:Function):Process;
+	
+			/** An alias to Process.off call which also accepts and resolve Promises **/
+			unhook(event:string, callback:Function):Process;
+		}
 	}
 }
 
