@@ -75,7 +75,7 @@
 		}
 	
 		if ( STATE.UNHANDLED_ERROR < 0 ) return;
-		setTimeout(()=>PROCESS_EXIT(1), STATE.UNHANDLED_ERROR);
+		setTimeout(()=>process.exit(1), STATE.UNHANDLED_ERROR);
 	})
 	.on('unhandledRejection', (e)=>{
 		if ( STATE.VERBOSE ) {
@@ -84,7 +84,7 @@
 		}
 		
 		if ( STATE.UNHANDLED_ERROR < 0 ) return;
-		setTimeout(()=>PROCESS_EXIT(1), STATE.UNHANDLED_ERROR);
+		setTimeout(()=>process.exit(1), STATE.UNHANDLED_ERROR);
 	})
 	.on('SIGINT', ()=>{
 		if ( STATE.SIGINT < 0 ) return;

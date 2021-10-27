@@ -1,6 +1,6 @@
 {
 	"name": "phook",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"description": "A tiny library that helps developer to control over the process states",
 	"main": "phook.js",
 	"scripts": {},
