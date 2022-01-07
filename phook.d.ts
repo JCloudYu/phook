@@ -33,10 +33,10 @@ declare global {
 	namespace NodeJS {
 		interface Process {
 			/** An alias to Process.on call which also accepts and resolve Promises **/
-			hook(event:string, callback:Function):Process;
+			hook(event:string, callback:{(exit_code:number):void}|{(exit_code:number):Promise<void>}):Process;
 	
 			/** An alias to Process.off call which also accepts and resolve Promises **/
-			unhook(event:string, callback:Function):Process;
+			unhook(event:string, callback:{(exit_code:number):void}|{(exit_code:number):Promise<void>}):Process;
 		}
 	}
 }
